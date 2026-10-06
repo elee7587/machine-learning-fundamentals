@@ -88,3 +88,28 @@ class LogisticRegression:
         if self.l2 > 0:
             ll = ll - (( self.l2 / (2 * len(y))) * np.sum(self.weights_ ** 2))
         return ll
+
+    def _gradients(self, X, y, p):
+        """Compute gradients of the average log-likelihood (direction of steepest ascent)
+        d(log L) / (dw_j) = sum_i (y_i - p_i) * x_ij
+
+        error = y - p
+        dw = X.T @ error / X.shape[0]
+
+        dw -= (l2 / n) * weights_
+        db = mean(error)
+        return dw, db
+        
+        """
+        raise NotImplementedError
+
+    def fit(self, X, y):
+        """Maximize the log-likelihood with batch gradient ascent/
+        
+        """
+        raise NotImplementedError
+
+    def _check_fitted(self):
+        """Raise an error if predict is called before fit"""
+
+        raise NotImplementedError
